@@ -1,65 +1,69 @@
-# Built with [DECKIO](https://deckio.art)
+# Azure Resiliency &amp; Recovery — The Complete Capability Catalog
 
-## How to edit this deck?
+A presentation deck that maps **every Azure resiliency and recovery capability** into one
+coherent, navigable story — from platform fundamentals to immutable recovery, backup &amp; DR,
+operational assurance, reference architectures, and incident procedures.
 
-For a smooth ride, use `Dev Containers` locally or use `GitHub Codespaces`. That saves you from installing dependencies yourself. Once the container is up and running, the presentation starts in a simple browser session shared with GitHub Copilot and you can start editing.
+It is the companion **capability catalog** to the curated
+[`enterprise-resilience-architecture`](https://github.com/aramsmith/enterprise-resilience-architecture)
+proposal deck: where that deck tells a focused story, this one is the complete reference.
 
-If you want to run it directly on your machine:
+> **▶ Live deck:** https://aramsmith.github.io/enterprise-resilience-capability-catalog/
+
+---
+
+## What's inside
+
+**39 slides** organized into six domains plus reference architectures and procedures:
+
+| # | Domain | Covers |
+|---|--------|--------|
+| 01 | **Platform foundation** | Regions &amp; region pairs, Availability Zones, fault/update domains, hybrid (Arc, Azure Local), edge &amp; sovereign clouds |
+| 02 | **Infrastructure resiliency** | Compute (VMSS, AKS, App Service), storage redundancy ladder (LRS→RA-GZRS) &amp; immutable blobs, databases, networking |
+| 03 | **Immutable &amp; fast recovery** | Azure Linux &amp; immutable OS, Trusted/Confidential VMs, IaC redeploy-from-code, GitOps, blue-green/canary, app patterns |
+| 04 | **Backup, DR &amp; cyber** | Azure Backup (immutable vaults, MUA), Site Recovery, Business Continuity Center, clean-room recovery, identity resilience |
+| 05 | **Test, operate &amp; assure** | Chaos Studio, observability, AIOps &amp; SRE Agent, WAF Reliability pillar, governance, specialized workloads |
+| 06 | **Procedures &amp; runbooks** | MIRP (Major Incident Recovery Plan), recovery runbooks, ransomware recovery playbook |
+
+Plus a **capability map** overview, an **RTO/RPO decision matrix**, and four Microsoft
+**reference architectures** (multi-region web app, Mission-Critical, multi-region AKS,
+multi-region N-tier with SQL Always On) — each linked to its source on
+[Microsoft Learn](https://learn.microsoft.com/en-us/azure/architecture/).
+
+---
+
+## Tech
+
+Built with [DECKIO](https://deckio.art) — slides are React/JSX components rendered by
+`@deckio/deck-engine` and bundled with Vite. Styling uses CSS Modules on a dark theme
+(accent `#49C5B1`).
+
+## Run it locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open http://localhost:5173 in your browser.
-
-Typical flow after GitHub Copilot is ready and the presentation is visible in Simple Browser:
-
-1. Ask GitHub Copilot to make the change you want.
-2. Let GitHub Copilot update the deck files for you.
-3. Review what changed.
-4. Look at the presentation and see the result immediately in real time, thanks to hot reload.
-5. If something feels off, ask GitHub Copilot to refine it and repeat.
-
-## GitHub Copilot in VS Code
-
-Do not make deck changes by editing code directly unless you really need to. This project is set up so GitHub Copilot in VS Code can do most of the work for you.
-
-Use GitHub Copilot Chat in Agent mode and describe the change you want. You can choose the model you like, but we recommend frontier models, `Claude Opus 4.6` or `GPT-5.3+`, for the best experience.
-
-The optimal flow is achieved with `Claude Opus 4.6` in fast mode.
-
-## What Copilot already knows
-
-This repo includes custom instructions and skills. Copilot already knows what files it should touch and what files it should leave alone.
-
-Useful skills:
-
-- `deck-add-slide` for creating a new slide and wiring it into `deck.config.js`
-- `deck-delete-slide` for removing a slide cleanly
-- `deck-inspect` for visually checking a rendered slide
-- `deck-port-powerpoint` for rebuilding a PowerPoint or PDF deck as native DECKIO slides
-- `deck-validate-project` for auditing the whole deck for consistency
-- `deck-sketch` for turning a rough whiteboard idea into a real slide
-
-## Prompt examples
-
-Use prompts like these instead of editing files yourself:
-
-- `Add a slide that explains the rollout phases for strategic customers.`
-- `Make this slide easier to scan and easier to present.`
-- `Remove the speaker invite slide.`
-- `Review this deck and fix anything that looks inconsistent or broken.`
-- `Create a customer case study slide that fits the style of the rest of the presentation.`
-- `Create a new slide based on my sketch.`
-- `Inspect the current progress, tell me what looks off, and make visual improvements.`
-
-## GitHub Copilot CLI
-
-Open GitHub Copilot CLI in this repo:
-
-Do you prefer TUIs? This works with GitHub Copilot CLI too.
+Open http://localhost:5173. Navigate with the on-screen arrows or the ← / → keys.
 
 ```bash
-gh copilot --yolo
+npm run build     # production build to dist/
+npm run preview   # preview the production build
 ```
+
+## Editing
+
+Slides live in `src/slides/`; reusable building blocks (catalog cards, section dividers,
+architecture diagrams, particle background, slide numbers) live in `src/components/`.
+Slide order and theme are defined in `deck.config.js`. Most on-slide text is wrapped in
+`<Editable>` so it can be edited inline in dev mode.
+
+## Deployment
+
+The deck auto-deploys to GitHub Pages on every push to `main` via
+[`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
+
+---
+
+*Vendor-neutral reference content. Not an official Microsoft publication.*
