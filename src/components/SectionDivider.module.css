@@ -1,0 +1,120 @@
+.divider {
+  background: var(--background);
+  padding: 0 0 44px 0;
+}
+
+.orbA {
+  width: 520px;
+  height: 520px;
+  top: -140px;
+  right: -120px;
+  background: radial-gradient(
+    circle at 45% 45%,
+    var(--accent),
+    color-mix(in srgb, var(--cyan) 26%, transparent) 52%,
+    transparent 72%
+  );
+}
+
+.orbB {
+  width: 360px;
+  height: 360px;
+  bottom: -90px;
+  left: -60px;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--purple-deep),
+    color-mix(in srgb, var(--purple-deep) 30%, transparent) 60%,
+    transparent 75%
+  );
+}
+
+.body {
+  position: relative;
+  z-index: 10;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 32px;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.kicker {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin: 0;
+}
+
+.statement {
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.statementA {
+  color: var(--foreground);
+}
+
+.statementB {
+  background: linear-gradient(135deg, var(--accent), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sub {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 520px;
+}
+
+.heroWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+.halo {
+  animation: divPulse 5s ease-in-out infinite;
+  transform-origin: 230px 230px;
+}
+
+.ringSlow {
+  transform-origin: 230px 230px;
+  animation: divSpin 40s linear infinite;
+}
+
+@keyframes divPulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes divSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}

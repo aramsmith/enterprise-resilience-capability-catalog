@@ -1,0 +1,7 @@
+@import '@deckio/deck-engine/styles/global.css';
+@import '@deckio/deck-engine/themes/dark.css';
+
+/* Remove DECKIO branding watermark from all slides (e.g. Thank You slide). */
+.deck-ty-watermark {
+  display: none !important;
+}
